@@ -23,7 +23,7 @@ public class App {
         System.out.println("Bleee bloop blue blue blah");
         System.out.println("I F**king hate this");
         System.out.println("NICK");
-
+        System.out.println("I added all the shit from russell");
         
     }
     
