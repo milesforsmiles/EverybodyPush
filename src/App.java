@@ -24,6 +24,7 @@ public class App {
         System.out.println("I F**king hate this");
         System.out.println("NICK");
         System.out.println("I added all the shit from russell");
+        System.out.println("Russell has a great beard");
         
     }
     
