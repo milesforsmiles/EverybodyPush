@@ -154,4 +154,151 @@ public class App {
 
     }
     
+    public static String toHumanTime(String time) {
+        HashMap<Integer, String> minutes = new HashMap<>();
+        minutes.put(1, "one");
+        minutes.put(2, "two");
+        minutes.put(3, "three");
+        minutes.put(4, "four");
+        minutes.put(5, "five");
+        minutes.put(6, "six");
+        minutes.put(7, "seven");
+        minutes.put(8, "eight");
+        minutes.put(9, "nine");
+        minutes.put(10, "ten");
+        minutes.put(11, "eleven");
+        minutes.put(12, "twelve");
+        minutes.put(13, "thirteen");
+        minutes.put(14, "fourteen");
+        minutes.put(15, "fifteen");
+        minutes.put(16, "sixteen");
+        minutes.put(17, "seventeen");
+        minutes.put(18, "eighteen");
+        minutes.put(19, "nineteen");
+        minutes.put(20, "twenty");
+        minutes.put(21, "twenty-one");
+        minutes.put(22, "twenty-two");
+        minutes.put(23, "twenty-three");
+        minutes.put(24, "twenty-four");
+        minutes.put(25, "twenty-five");
+        minutes.put(26, "twenty-six");
+        minutes.put(27, "twenty-seven");
+        minutes.put(28, "twenty-eight");
+        minutes.put(29, "twenty-nine");
+        minutes.put(30, "thirty");  
+        minutes.put(59, "one");
+        minutes.put(58, "two");
+        minutes.put(57, "three");
+        minutes.put(56, "four");
+        minutes.put(55, "five");
+        minutes.put(54, "six");
+        minutes.put(53, "seven");
+        minutes.put(52, "eight");
+        minutes.put(51, "nine");
+        minutes.put(50, "ten");
+        minutes.put(49, "eleven");
+        minutes.put(48, "twelve");
+        minutes.put(47, "thirteen");
+        minutes.put(46, "fourteen");
+        minutes.put(45, "fifteen");
+        minutes.put(44, "sixteen");
+        minutes.put(43, "seventeen");
+        minutes.put(42, "eighteen");
+        minutes.put(41, "nineteen");
+        minutes.put(40, "twenty");
+        minutes.put(39, "twenty-one");
+        minutes.put(38, "twenty-two");
+        minutes.put(37, "twenty-three");
+        minutes.put(36, "twenty-four");
+        minutes.put(35, "twenty-five");
+        minutes.put(34, "twenty-six");
+        minutes.put(33, "twenty-seven");
+        minutes.put(32, "twenty-eight");
+        minutes.put(31, "twenty-nine");
+        minutes.put(30, "thirty");
+        
+        String delims = "[ apm:]";
+
+        String[] numbers = time.split(delims);
+        
+        
+        if (Integer.parseInt(numbers[0]) == 0 || Integer.parseInt(numbers[0]) == 12) {
+            switch (Integer.parseInt(numbers[1])) {
+                case 30:
+                    return "half past twelve";
+                case 0:
+                    return "twelve o'clock";
+                case 15:
+                    return "quarter past twelve";
+                case 45:
+                    return "quarter to one";
+            }
+            if (Integer.parseInt(numbers[1]) == 1) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minute past twelve";
+            }
+            else if (Integer.parseInt(numbers[1]) == 59) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minute to one";
+            }
+            else if (Integer.parseInt(numbers[1]) < 30) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minutes past twelve";
+            } else if (Integer.parseInt(numbers[1]) > 30) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minutes to one";
+            }
+        } else if (Integer.parseInt(numbers[0]) > 12) {
+            switch (Integer.parseInt(numbers[1])) {
+                case 30:
+                    return "half past " + minutes.get(Integer.parseInt(numbers[0]) - 12);
+                    
+                case 0:
+                    return minutes.get(Integer.parseInt(numbers[0]) - 12) + " o'clock";
+                    
+                case 15:
+                    return "quarter past " + minutes.get(Integer.parseInt(numbers[0]) - 12);
+                    
+                case 45:
+                    return "quarter to " + minutes.get(Integer.parseInt(numbers[0]) - 11);
+                  
+            }
+            if (Integer.parseInt(numbers[1]) == 1) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minute past " + minutes.get(Integer.parseInt(numbers[0]) - 12);
+            }
+            else if (Integer.parseInt(numbers[1]) == 59) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minute to " + minutes.get(Integer.parseInt(numbers[0]) - 11);
+            }
+            else if (Integer.parseInt(numbers[1]) < 30) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minutes past " + minutes.get(Integer.parseInt(numbers[0]) - 12);
+            } else if (Integer.parseInt(numbers[1]) > 30) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minutes to " + minutes.get(Integer.parseInt(numbers[0]) - 11);
+            }
+
+        } else if (Integer.parseInt(numbers[0]) < 12 && Integer.parseInt(numbers[0]) > 0) {
+            switch (Integer.parseInt(numbers[1])) {
+                case 30:
+                    return "half past " + minutes.get(Integer.parseInt(numbers[0]));
+                    
+                case 0:
+                    return minutes.get(Integer.parseInt(numbers[0])) + " o'clock";
+                    
+                case 15:
+                    return "quarter past " + minutes.get(Integer.parseInt(numbers[0]));
+                    
+                case 45:
+                    return "quarter to " + minutes.get(Integer.parseInt(numbers[0]) + 1);
+                    
+            }
+            if (Integer.parseInt(numbers[1]) == 1) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minute past " + minutes.get(Integer.parseInt(numbers[0]));
+            }
+            else if (Integer.parseInt(numbers[1]) == 59) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minute to " + minutes.get(Integer.parseInt(numbers[0]) + 1);
+            }
+            else if (Integer.parseInt(numbers[1]) < 30) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minutes past " + minutes.get(Integer.parseInt(numbers[0]));
+            } else if (Integer.parseInt(numbers[1]) > 30) {
+                return minutes.get(Integer.parseInt(numbers[1])) + " minutes to " + minutes.get(Integer.parseInt(numbers[0]) + 1);
+            }
+        }
+        return "";
+    }
+    
 }
