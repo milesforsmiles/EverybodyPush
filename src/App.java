@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -310,6 +311,11 @@ public class App {
           if (i%3==0 || i%5==0){sum+=i;}
         }
         return sum;
+    }
+    
+    public static int solution2(int number) 
+    {
+        return IntStream.range(0, number).filter(n -> (n % 3 == 0) || (n % 5 == 0)).sum();
     }
     
 }
