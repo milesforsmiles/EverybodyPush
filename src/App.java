@@ -22,9 +22,9 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Qhhsodf");
         System.out.println("Bleee bloop blue blue blah");
-        System.out.println("I F**king hate this");
+        
         System.out.println("NICK");
-        System.out.println("I added all the shit, from russell");
+        System.out.println("I added all the , from russell");
         System.out.println("Russell has a great beard");
         
     }
